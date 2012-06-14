@@ -3,6 +3,25 @@
 /**
  * Helper class for 'dates'
  *
+ * PHP version 5.3+
+ *
+ * @version		1.0
+ * @copyright 	Copyright (C) 2012 Stu Ellerbusch. All rights reserved.
+ * @author    	Stu Ellerbusch
+ * @link       	https://github.com/ellerbus/PHP-Date-Helper
+ * @license    	http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * USE THIS LIBRARY AT YOUR OWN RISK: no warranties are expressed or
+ * implied. You may modify the file however you see fit, so long as
+ * you retain this header information and any credits to other sources
+ * throughout the file.
+ *
+ *
  * Holiday Logic built from:
  * ========================================================================
  * US Holiday Calculations in PHP
