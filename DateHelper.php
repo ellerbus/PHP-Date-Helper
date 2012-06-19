@@ -498,20 +498,18 @@ final class DateHelper
         $time = self::getTime($time);
 
         //  roll forward if a weekend or holiday
-        $tmp_date = date(self::YMD, $time);
+        $dt = date(self::YMD, $time);
 
-        while (!self::isBusinessDay($tmp_date))
+        while (!self::isBusinessDay($dt))
         {
-            $tmp_date = date(self::YMD, $time);
-
-            $time = strtotime('+1 day', $time);
+            $dt = self::getStartOfNextDay($dt);
         }
 
-        return date(self::YMD, $time);
+        return $dt;
     }
 
     /**
-     * Gets the previous business day based on now or supplied time
+     * Gets the following business day based on now or supplied time
      *
      * @param mixed $time (string or int)
      */
@@ -519,17 +517,15 @@ final class DateHelper
     {
         $time = self::getTime($time);
 
-        //  roll backward if a weekend or holiday
-        $tmp_date = date(self::YMD, $time);
+        //  roll forward if a weekend or holiday
+        $dt = date(self::YMD, $time);
 
-        while (!self::isBusinessDay($tmp_date))
+        while (!self::isBusinessDay($dt))
         {
-            $tmp_date = date(self::YMD, $time);
-
-            $time = strtotime('-1 day', $time);
+            $dt = self::getStartOfPrevDay($dt);
         }
 
-        return date(self::YMD, $time);
+        return $dt;
     }
 
     /**
