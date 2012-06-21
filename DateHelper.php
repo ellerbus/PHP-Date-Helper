@@ -353,7 +353,7 @@ final class DateHelper
 
         $time = self::getStartOfQuarter($time);
 
-        $m = self::getTheQuarter() * 3 + 3;
+        $m = self::getTheQuarter($time) * 3 + 3;
         $d = 1;
         $y = date('Y', self::getTime($time));
 
@@ -379,7 +379,7 @@ final class DateHelper
 
         $time = self::getStartOfQuarter($time);
 
-        $m = self::getTheQuarter() * 3 - 3;
+        $m = self::getTheQuarter($time) * 3 - 3;
         $d = 1;
         $y = date('Y', self::getTime($time));
 
