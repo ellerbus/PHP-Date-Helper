@@ -253,7 +253,7 @@ final class DateHelper
         $time = self::getTime($time);
 
         $y = date('Y', $time);
-        $m = date('m', $time) + 1;
+        $m = date('n', $time) + 1;
 
         if ($m > 12)
         {
@@ -275,7 +275,7 @@ final class DateHelper
         $time = self::getTime($time);
 
         $y = date('Y', $time);
-        $m = date('m', $time) - 1;
+        $m = date('n', $time) - 1;
 
         if ($m == 0)
         {
@@ -353,7 +353,26 @@ final class DateHelper
 
         $time = self::getStartOfQuarter($time);
 
-        $m = self::getTheQuarter($time) * 3 + 3;
+        switch (self::getTheQuarter($time))
+        {
+            case 1:
+                $m = 1;
+                break;
+            case 2:
+                $m = 4;
+                break;
+            case 3:
+                $m = 7;
+                break;
+            case 4:
+                $m = 10;
+                break;
+            default:
+                $m = 1;
+                break;
+        }
+
+        $m = $m + 3;
         $d = 1;
         $y = date('Y', self::getTime($time));
 
@@ -379,7 +398,26 @@ final class DateHelper
 
         $time = self::getStartOfQuarter($time);
 
-        $m = self::getTheQuarter($time) * 3 - 3;
+        switch (self::getTheQuarter($time))
+        {
+            case 1:
+                $m = 1;
+                break;
+            case 2:
+                $m = 4;
+                break;
+            case 3:
+                $m = 7;
+                break;
+            case 4:
+                $m = 10;
+                break;
+            default:
+                $m = 1;
+                break;
+        }
+
+        $m = $m - 3;
         $d = 1;
         $y = date('Y', self::getTime($time));
 
@@ -402,7 +440,9 @@ final class DateHelper
     {
         $time = self::getTime($time);
 
-        return ceil(date('m', $time) / 3);
+        $m = date('n', $time) / 3.0;
+
+        return ceil($m);
     }
 
     /**
@@ -490,7 +530,6 @@ final class DateHelper
 
     /**
      * Gets the following business day based on now or supplied time
-	 * (inclusive of '$time', starts with '$time')
      *
      * @param mixed $time (string or int)
      */
@@ -510,8 +549,7 @@ final class DateHelper
     }
 
     /**
-     * Gets the previous business day based on now or supplied time
-	 * (exclusive of '$time', starts with 1 day previous to '$time')
+     * Gets the following business day based on now or supplied time
      *
      * @param mixed $time (string or int)
      */
