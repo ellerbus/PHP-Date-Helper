@@ -1,22 +1,20 @@
-Sample run as of June 21 2012
-----------------------------------------------------------------
-
+As of 2012-06-22
 ----------------------------------------------------------------
 -- Day: START/NEXT/PREV
 ----------------------------------------------------------------
-Now					2012-06-21
-Start of Day				2012-06-21
-Next Day				2012-06-22
-Prev Day				2012-06-20
-Next Business Day			2012-06-21
-Prev Business Day			2012-06-20
+Now					2012-06-22
+Start of Day				2012-06-22
+Next Day				2012-06-23
+Prev Day				2012-06-21
 Days between Prev/Next			2
+Next Business Day			2012-06-22
+Prev Business Day			2012-06-21
 ----------------------------------------------------------------
 -- Week: START/NEXT/PREV
 ----------------------------------------------------------------
-Start of Week				2012-06-18
-Next Week				2012-06-25
-Prev Week				2012-06-11
+Start of Week				2012-06-17
+Next Week				2012-06-24
+Prev Week				2012-06-10
 ----------------------------------------------------------------
 -- Month: START/END/NEXT/PREV
 ----------------------------------------------------------------
@@ -40,8 +38,8 @@ Prev Year				2011-01-01
 ----------------------------------------------------------------
 -- Holidays for 2012
 ----------------------------------------------------------------
-New Years Day				2012-01-01
-New Years Day Observed			2012-01-02
+New Years Day	2012-01-01
+New Years Day Observed	2012-01-02
 Martin Luther King Day Observed		2012-01-16
 Presidents Day Observed			2012-02-20
 St. Patricks Day			2012-03-17
