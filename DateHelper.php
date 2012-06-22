@@ -183,11 +183,6 @@ final class DateHelper
 
         $w = date('w', $time);
 
-        if ($w > 0)
-        {
-            $w -= 1;
-        }
-
         $m = date('n', $time);
         $d = date('j', $time) - $w;
         $y = date('Y', $time);
