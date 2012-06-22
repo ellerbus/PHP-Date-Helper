@@ -575,6 +575,11 @@ final class DateHelper
 
         $time = self::getEndOfMonth($time);
 
+        if (self::isBusinessDay($time))
+        {
+            return $time;
+        }
+
         return self::getPrevBusinessDay($time);
     }
 
