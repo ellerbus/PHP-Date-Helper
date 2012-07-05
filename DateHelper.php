@@ -3,25 +3,6 @@
 /**
  * Helper class for 'dates'
  *
- * PHP version 5.3+
- *
- * @version		1.0
- * @copyright 	Copyright (C) 2012 Stu Ellerbusch. All rights reserved.
- * @author    	Stu Ellerbusch
- * @link       	https://github.com/ellerbus/PHP-Date-Helper
- * @license    	http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * USE THIS LIBRARY AT YOUR OWN RISK: no warranties are expressed or
- * implied. You may modify the file however you see fit, so long as
- * you retain this header information and any credits to other sources
- * throughout the file.
- *
- *
  * Holiday Logic built from:
  * ========================================================================
  * US Holiday Calculations in PHP
@@ -63,6 +44,7 @@ final class DateHelper
 
     /**
      * Creates a date from year, month, day
+     *
      * @param int $year Four digit year (date('Y'))
      * @param int $month Month Number (date('n'))
      * @param int $day Day of Month (date('j'))
@@ -524,16 +506,17 @@ final class DateHelper
     }
 
     /**
-     * Gets the following business day based on now or supplied time
+     * Gets the start of the business day based on now or supplied time
+     * rolling forward if now or supplied time is NOT a business day
      *
      * @param mixed $time (string or int)
      */
-    public static function getNextBusinessDay($time = null)
+    public static function getStartOfBusinessDay($time = null)
     {
         $time = self::getTime($time);
 
         //  roll forward if a weekend or holiday
-        $dt = date(self::YMD, $time);
+        $dt = self::getStartOfDay($time);
 
         while (!self::isBusinessDay($dt))
         {
@@ -548,11 +531,31 @@ final class DateHelper
      *
      * @param mixed $time (string or int)
      */
-    public static function getPrevBusinessDay($time = null)
+    public static function getNextBusinessDay($time = null)
     {
         $time = self::getTime($time);
 
         //  roll forward if a weekend or holiday
+        $dt = self::getStartOfNextDay($time);
+
+        while (!self::isBusinessDay($dt))
+        {
+            $dt = self::getStartOfNextDay($dt);
+        }
+
+        return $dt;
+    }
+
+    /**
+     * Gets the previous business day based on now or supplied time
+     *
+     * @param mixed $time (string or int)
+     */
+    public static function getPrevBusinessDay($time = null)
+    {
+        $time = self::getTime($time);
+
+        //  roll backward if a weekend or holiday
         $dt = self::getStartOfPrevDay($time);
 
         while (!self::isBusinessDay($dt))
