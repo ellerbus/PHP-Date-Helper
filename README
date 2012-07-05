@@ -7,7 +7,11 @@ Start of Day				2012-06-22
 Next Day				2012-06-23
 Prev Day				2012-06-21
 Days between Prev/Next			2
-Next Business Day			2012-06-22
+----------------------------------------------------------------
+-- Day: START/NEXT/PREV
+----------------------------------------------------------------
+Start of Business Day			2012-06-22
+Next Business Day			2012-06-25
 Prev Business Day			2012-06-21
 ----------------------------------------------------------------
 -- Week: START/NEXT/PREV
