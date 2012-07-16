@@ -484,6 +484,10 @@ final class DateHelper
      */
     public static function getDateFromTime($time)
     {
+        if (is_string($time))
+        {
+            $time = strtotime($time);
+        }
         return date(self::YMD, $time);
     }
 
