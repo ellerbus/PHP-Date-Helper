@@ -82,25 +82,85 @@ final class DateHelper
      * @param string $frequency D,W,M,Q,Y
      * @return string date
      */
-    public static function getNext($frequency)
+    public static function getStartOf($frequency, $time = null)
     {
         switch ($frequency)
         {
             case'd':
             case'D':
-                return self::getStartOfNextDay();
+                return self::getStartOfDay($time);
             case'w':
             case'W':
-                return self::getStartOfNextWeek();
+                return self::getStartOfWeek($time);
             case'm':
             case'M':
-                return self::getStartOfNextMonth();
+                return self::getStartOfMonth($time);
             case'q':
             case'Q':
-                return self::getStartOfNextQuarter();
+                return self::getStartOfQuarter($time);
             case'y':
             case'Y':
-                return self::getStartOfNextYear();
+                return self::getStartOfYear($time);
+        }
+
+        throw new Exception("Invalid Frequency Type: $frequency");
+    }
+
+    /**
+     * Gets the next date based on a frequency type
+     *
+     * @param string $frequency D,W,M,Q,Y
+     * @return string date
+     */
+    public static function getStartOfNext($frequency, $time = null)
+    {
+        switch ($frequency)
+        {
+            case'd':
+            case'D':
+                return self::getStartOfNextDay($time);
+            case'w':
+            case'W':
+                return self::getStartOfNextWeek($time);
+            case'm':
+            case'M':
+                return self::getStartOfNextMonth($time);
+            case'q':
+            case'Q':
+                return self::getStartOfNextQuarter($time);
+            case'y':
+            case'Y':
+                return self::getStartOfNextYear($time);
+        }
+
+        throw new Exception("Invalid Frequency Type: $frequency");
+    }
+
+    /**
+     * Gets the next date based on a frequency type
+     *
+     * @param string $frequency D,W,M,Q,Y
+     * @return string date
+     */
+    public static function getStartOfPrev($frequency, $time = null)
+    {
+        switch ($frequency)
+        {
+            case'd':
+            case'D':
+                return self::getStartOfPrevDay($time);
+            case'w':
+            case'W':
+                return self::getStartOfPrevWeek($time);
+            case'm':
+            case'M':
+                return self::getStartOfPrevMonth($time);
+            case'q':
+            case'Q':
+                return self::getStartOfPrevQuarter($time);
+            case'y':
+            case'Y':
+                return self::getStartOfPrevYear($time);
         }
 
         throw new Exception("Invalid Frequency Type: $frequency");
